@@ -1,0 +1,30 @@
+CREATE DATABASE "reactEvaluacion"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Spanish_Argentina.1252'
+    LC_CTYPE = 'Spanish_Argentina.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+COMMENT ON DATABASE "reactEvaluacion"
+    IS 'DB de evaluacion';
+
+
+-- DROP TABLE IF EXISTS public.contactos;
+
+CREATE TABLE IF NOT EXISTS public.contactos
+(
+    id bigint NOT NULL DEFAULT nextval('contactos_id_seq'::regclass),
+    nombre text COLLATE pg_catalog."default",
+    apellido text COLLATE pg_catalog."default",
+    telefono bigint,
+    CONSTRAINT contactos_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.contactos
+    OWNER to postgres;
+
+
